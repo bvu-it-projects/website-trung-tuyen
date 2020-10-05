@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <%- include ('common/head', {title: 'Quản trị | Tra cứu thông tin trúng tuyển - BVU'}) %>
+</head>
+<body>
+
+    <%- include ('common/header') %>
+
+    
+    <% if (locals.errorAlert) { %>
+        <%- errorAlert %>
+    <% } %>
+
+
+    <div id="middle">
+        <div>
+            <p style="margin-bottom: 10px;">Đăng nhập Trang quản trị</p>
+            <p>Tra cứu thông tin trúng tuyển Đại học hệ chính quy 2020</p>
+        </div>
+        <div id="main">
+            <form action="/login" method="post" id="loginForm">
+                <input type="text" name="username" class="txtInput" 
+                    placeholder="Tên đăng nhập" autofocus required
+                    oninvalid="setCustomValidity('Vui lòng điền vào trường này')"
+                    oninput="setCustomValidity('')"
+                />
+                <input type="password" name="password" class="txtInput" 
+                    placeholder="Mật khẩu" autofocus required
+                    oninvalid="setCustomValidity('Vui lòng điền vào trường này')"
+                    oninput="setCustomValidity('')"
+                />
+                <input type="submit" id="btnSubmit" value="Đăng nhập"/>
+            </form>
+        </div>
+    </div>
+
+        
+    <!-- <%- include ('common/footer') %> -->
+</body>
+</html>

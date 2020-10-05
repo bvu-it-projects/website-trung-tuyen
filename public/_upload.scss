@@ -1,0 +1,153 @@
+
+.fas, .far { 
+    margin: 10px;
+}
+
+
+#middle {
+    width: 100%;
+    > #title {
+        text-align: center;
+    }
+
+    #main {
+        width: 100%;
+    }
+}
+
+
+
+
+#uploadForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#fileChooser {
+    #txtFile {
+        visibility: hidden;
+        position:absolute;
+        top: -999;
+    }
+
+    label {
+        user-select: none;
+        cursor: pointer;
+        border-radius: 4px;
+        overflow: hidden;
+
+        background: rgb(221, 221, 221);
+        border: 1px solid #bbb;
+
+        max-width: 275px;
+        width: 275px;
+
+        display: grid;
+        grid-template-columns: 60% 40%;
+        align-items: center;
+        
+        $padding: 7px;
+        
+        #txtFileName {
+            background: rgb(235, 235, 235);
+            overflow: hidden;
+            height: 100%;
+            padding: $padding;
+        }
+
+        p:last-child {
+            text-align: center;
+            padding: $padding;
+            border-left: 1px solid #bbb;
+        }
+
+
+        &:focus, &:active {
+            outline: none;
+            box-shadow: 0 0 0 4px #b8dbff;
+        }
+    }
+}
+
+
+#txtTableRows {
+    margin-bottom: 5px;
+    color: gray;
+}
+
+
+// #btnCheck, #btnSubmitFile {
+//     cursor: pointer;
+//     text-decoration: none;
+//     text-align: center;
+//     font-size: 16px;
+
+//     color: $primary-navy;
+//     background: $thirdly-yellow;
+
+//     border: 1px solid $primary-yellow;
+//     border-radius: 4px;
+//     padding: 10px 20px;
+
+
+//     &:focus {
+//         outline: none;
+//         box-shadow: 0 0 0 4px #b8dbff;
+//     }
+// }
+
+
+// #btnSubmitFile {
+//     &.disabled {
+//         background: rgb(209, 209, 209);
+//         color: gray;
+    
+//         //  chặn click
+//         pointer-events: none;
+//         cursor: not-allowed;
+        
+//         border: none;
+//     }
+
+//     position: relative;
+//     font-size: 16px;
+
+//     &::after {
+//         font-family: 'FontAwesome';
+//         content: '\f274';
+//         position: absolute;
+//         right: 6px;
+//    }
+// }
+
+
+#btnLogout {
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    margin: 20px;
+}
+
+
+#tblResult.ordinal {
+    tr:not(:first-child) {
+        td:nth-child(3) {
+            border-right: none;
+        }
+        td:nth-child(4) {
+            border-left: none;
+        }
+
+        td:nth-child(7), td:nth-child(1), td:nth-child(2) {
+            text-align: center;
+        }
+
+        &:hover {
+            background: $thirdly-navy;
+        }
+    }
+}

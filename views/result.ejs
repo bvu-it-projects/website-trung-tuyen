@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <%- include ('common/head', {title: 'Tra cứu thông tin trúng tuyển - BVU'}) %>
+</head>
+<body>
+
+    <%- include ('common/header') %>
+
+
+    <div id="middle">
+        <div>Tra cứu thông tin trúng tuyển Đại học hệ chính quy 2020</div>
+        <div id="main">
+            <form action="/" method="POST">
+                <input type="text" name="input" id="txtInput" 
+                    placeholder="Nhập Số báo danh hoặc Họ tên" autofocus required
+                    oninvalid="setCustomValidity('Vui lòng điền vào trường này')"
+                    oninput="setCustomValidity('')"
+                />
+                <input type="submit" id="btnSubmit" value="Tra cứu"/>
+            </form>
+        </div>
+        
+
+        <div>
+            <p id="txtTableRows">Có <%= result.length %> kết quả.</p>
+            <table id="tblResult" class="none-ordinal">
+                <tr>
+                    <td>Số báo danh</td>
+                    <td colspan="2">Họ và tên</td>
+                    <td>Giới tính</td>
+                    <td>Ngày sinh</td>
+                    <td>Tổ hợp môn</td>
+                    <td>Ngành trúng tuyển</td>
+                    <td>Điểm trúng tuyển</td>
+                </tr>
+
+                <% if (result.length == 0) { %>
+                    <tr>
+                        <td colspan="8" id="txtTableEmpty" style="color: red; font-weight: 500">
+                            Không tìm thấy dữ liệu. Để có kết quả chính xác nhất, hãy tìm bằng Số báo danh.
+                        </td>
+                    </tr>
+                <% } %>
+
+
+                <% result.forEach((item) => { %>
+                    <tr>
+                        <td><%= item.sbd %></td>
+                        <td><%= item.lastname %></td>
+                        <td><%= item.firstname %></td>
+                        <td><%= item.gender %></td>
+                        <td><%= item.dob %></td>
+                        <td><%= item.combination %></td>
+                        <td><%= item.major %></td>
+                        <td><%= item.admissionScores %></td>
+                    </tr>
+                <% }) %>
+            </table>
+        </div>
+    </div>
+
+
+    <%- include ('common/footer') %>
+</body>
+</html>
