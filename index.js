@@ -151,3 +151,8 @@ app.get('/logout', function (req, res) {
 // routes that require loged in
 
 app.use('/upload', require('./routes/upload'));
+
+
+app.use((req, res,next) => {
+    res.render('404');
+});
