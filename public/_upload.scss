@@ -79,59 +79,6 @@
 }
 
 
-// #btnCheck, #btnSubmitFile {
-//     cursor: pointer;
-//     text-decoration: none;
-//     text-align: center;
-//     font-size: 16px;
-
-//     color: $primary-navy;
-//     background: $thirdly-yellow;
-
-//     border: 1px solid $primary-yellow;
-//     border-radius: 4px;
-//     padding: 10px 20px;
-
-
-//     &:focus {
-//         outline: none;
-//         box-shadow: 0 0 0 4px #b8dbff;
-//     }
-// }
-
-
-// #btnSubmitFile {
-//     &.disabled {
-//         background: rgb(209, 209, 209);
-//         color: gray;
-    
-//         //  chặn click
-//         pointer-events: none;
-//         cursor: not-allowed;
-        
-//         border: none;
-//     }
-
-//     position: relative;
-//     font-size: 16px;
-
-//     &::after {
-//         font-family: 'FontAwesome';
-//         content: '\f274';
-//         position: absolute;
-//         right: 6px;
-//    }
-// }
-
-
-#btnLogout {
-    position: absolute;
-    top: 0;
-    right: 0;
-    
-    margin: 20px;
-}
-
 
 #tblResult.ordinal {
     tr:not(:first-child) {

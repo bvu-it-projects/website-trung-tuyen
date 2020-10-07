@@ -148,11 +148,21 @@ app.get('/logout', function (req, res) {
 });
 
 
-// routes that require loged in
 
+// routes that require loged in
 app.use('/upload', require('./routes/upload'));
 
+app.get('/statistics', function (req, res) {
+    if (!req.isAuthenticated()) {
+        res.redirect('/login');
+        return;
+    }
+    res.render('statistics');
+});
 
+
+
+//  404 page
 app.use((req, res,next) => {
     res.render('404');
 });

@@ -53,31 +53,45 @@
         </div>
 
 
-        <a href="logout" id="btnLogout" class="btn btn-danger">Đăng xuất</a>
-
-
         <div id="main">
             <div class="container">
-                <div class="row mb-5 text-center">
-                    <div class="col-md col-sm mb-2 text-center">
-                        <button type="button" class="btn btn-primary px-3" data-toggle="modal" data-target="#editingNotesModal"
+                <div class="row text-center mb-5">
+                    <div class="col">
+                        <a href="logout" id="btnLogout" class="btn btn-danger px-4 py-2">Đăng xuất</a>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-3 col-sm-0"></div>
+                    <div class="col-md-3 col-sm mb-2 text-center d-flex align-items-stretch">
+                        <button type="button" class="btn btn-primary btn-block px-3" data-toggle="modal" data-target="#editingNotesModal"
                         id="btnEditNotes">
                         <i class="far fa-edit"></i>
                             <span>Chỉnh sửa Ghi chú</span>
                         </button>
                     </div>
-                    <div class="col-md col-sm mb-2">
-                        <a href="upload/template.xlsx" id="btnCheck" class="btn btn-warning">
-                            <i class="fas fa-file-excel"></i>
+                    <div class="col-md-3 col-sm mb-2 text-center d-flex align-items-stretch">
+                        <a href="/statistics#chart" target="_blank" type="button" class="btn btn-info btn-block px-3">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Xem thống kê truy cập</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-0"></div>
+                </div>
+                <div class="row mb-5 text-center">
+                    <div class="col-md-3 col-sm-0"></div>
+                    <div class="col-md-3 col-sm mb-2 d-flex align-items-stretch">
+                        <a href="upload/template.xlsx" id="btnCheck" class="btn btn-warning btn-block">
+                            <i class="fas fa-file-download"></i>
                             <span>File dữ liệu mẫu</span>
                         </a>
                     </div>
-                    <div class="col-md col-sm mb-2">
-                        <a href="upload/ds.xlsx" id="btnGetCurrentFile" class="btn btn-info">
-                            <i class="fas fa-file-excel"></i>
+                    <div class="col-md-3 col-sm mb-2 d-flex align-items-stretch">
+                        <a href="upload/ds.xlsx" id="btnGetCurrentFile" class="btn btn-warning btn-block">
+                            <i class="fas fa-file-download"></i>
                             <span>File dữ liệu hiện hành</span>
                         </a>
                     </div>
+                    <div class="col-md-3 col-sm-0"></div>
                 </div>
 
                 <div class="row text-center">
@@ -85,7 +99,7 @@
                     <div class="col-md-6 col-sm-12">
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="txtFile">
+                                <input type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" class="custom-file-input py-3" id="txtFile">
                                 <label class="custom-file-label" id="txtFileName" for="txtFile">Chọn tệp</label>
                             </div>
                         </div>
@@ -95,7 +109,7 @@
 
                 <div class="row text-center mt-2">
                     <div class="col">
-                        <button  class="btn btn-success px-3" id="btnSubmitFile"disabled>
+                        <button class="btn btn-success px-2" id="btnSubmitFile"disabled>
                             <i class="fas fa-cloud-upload-alt"></i>
                             Tải dữ liệu lên
                         </button>
