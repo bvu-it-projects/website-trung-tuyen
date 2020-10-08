@@ -1,9 +1,9 @@
 
-const xlsxConvertor = require('../self_modules/xlsx-converter');
 const express = require('express');
 const router = express.Router();
 const path = require('path');
 const fs = require('fs');
+const moment = require('moment');
 
 module.exports = router;
 
@@ -38,11 +38,39 @@ router.get('/generate', function (req, res) {
 
 router.post('/', function (req, res) {
 
-    
     findInfo(req.body.input)
         .then(function(result) {
 
-            // get notes
+            // writing to statistics files
+            try {
+                const timestamp = Date.now();
+                const now = moment();
+                const statisticsFilePath = path.join(__dirname, '..', `statistics/${timestamp}`);
+                const statisticsDatas = {
+                    query: req.body.input,
+                    date: now.format('DD'),
+                    month: now.format('MM'),
+                    year: now.format('YYYY'),
+                    time: now.format('HH:mm:ss'),
+                    success: result.length ? 'true': 'false',
+                    results: result.length
+                };
+                fs.writeFile(statisticsFilePath, JSON.stringify(statisticsDatas), {flag: 'w'}, (err) => {
+                    console.log('\nNew query:', err);
+                });
+            }
+            catch (err) {
+                console.log(err);
+                fs.writeFile(
+                    path.join(__dirname, '..', 'stderr.log'),
+                    err, {encoding: 'utf8', flag: 'a'}, (err) => {
+
+                    }
+                );
+            }
+
+
+            // getting notes
             getFooterNotes()
                 .then(function (notes) {
                     res.render('result', {
@@ -101,7 +129,7 @@ function findInfo(input) {
                     if (removeAccents(`${data[i]['sbd']}`).toLowerCase().includes(input)
                         || removeAccents(`${data[i]['lastname']}`).toLowerCase().includes(input)
                         || removeAccents(`${data[i]['firstname']}`).toLowerCase().includes(input)
-                        || removeAccents(`${data[i]['lastname']} ${data[i]['firstname']}`).toLowerCase().includes(input)) {
+                        || removeAccents(`${data[i]['lastname']}${data[i]['firstname']}`).toLowerCase().includes(input)) {
                             collection.push(data[i]);
                     }
                 }
